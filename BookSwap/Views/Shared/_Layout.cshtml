@@ -8,64 +8,52 @@
     <link rel="stylesheet" href="~/lib/fontawesome/css/all.css" />
    
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/card.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/tiny-slider.css" asp-append-version="true" />
+
     <link rel="stylesheet" href="~/BookSwap.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
-            <div class="container-fluid">
+        <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
+            <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BookSwap</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+
+                <div class="collapse navbar-collapse" id="navbarsFurni">
+                    <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Libros" asp-action="Index">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Explorar</a>
+                            <a class="nav-link" asp-area="" asp-controller="Store" asp-action="">Tienda</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Vender" asp-action="">Vender</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Donar" asp-action="">Donar</a>
-                        </li>
-                        
                        
+
+                    </ul>
+
+                    <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Carrito" asp-action=""><i class="fa-solid fa-cart-shopping"></i></a>
+                        </li>
+                        <li>
+                            <a class="nav-link" asp-area="" asp-controller="Usuario" asp-action=""><i class="fa-regular fa-user"></i></a>
+                        </li>
                     </ul>
                 </div>
-
-                
-                <div class="nav-item" style="margin:10px">
-                    <div class="dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" aria-expanded="false" data-bs-toggle="dropdown" style="color:mintcream">
-                            <i class="bi bi-person-circle"></i>
-                        </a>
-
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" asp-area="" asp-controller="Perfil" asp-action="Index">Perfil</a>
-                            <a class="dropdown-item" asp-area="" asp-controller="Cuenta" asp-action="IniciarSesion">Iniciar Sesión</a>
-                            <a class="dropdown-item" asp-area="" asp-controller="Cuenta" asp-action="Registrarse">Registrarse</a>
-                        </div>
-                    </div>
-                </div>
-
-
-                <form class="d-flex">
-                    <input class="form-control me-sm-2" type="search" placeholder="Search">
-                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-                </form>
-
-               
-
-
-             
             </div>
+
         </nav>
+
+
+
+
+
+
+            
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -73,16 +61,15 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container text-center" >
-            BookSwap © | 2024 Todos los derechos reservados
-        </div>
-    </footer>
+  
 
 
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/tiny-slider.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/custom.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

@@ -16,10 +16,10 @@
     }
 }
 
-<h1>Index</h1>
+<h1>Inventario</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Crear Nuevo</a>
 </p>
 <table class="table">
     <thead>
@@ -91,9 +91,9 @@
                 <i class="@HasImage(item)"></i>
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id"><button type="button" class="btn btn-warning">Editar</button></a> |
+                    <a asp-action="Details" asp-route-id="@item.Id"><button type="button" class="btn btn-info">Info</button></a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id"><button type="button" class="btn btn-danger">Eliminar</button></a>
             </td>
         </tr>
 }

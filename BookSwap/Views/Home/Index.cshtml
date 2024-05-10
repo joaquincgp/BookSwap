@@ -2,7 +2,266 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Bienvenido a BookSwap</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="hero">
+    <div class="container-fluid">
+        <div class="row justify-content-between">
+            <div class="col-lg-5">
+                <div class="intro-excerpt">
+                    <h1>Bienvenido a la plataforma de intercambio de libros más grande de Ecuador</h1>
+                    <p class="mb-4">Intercambia, vende y encuentra tus próximas lecturas favoritas.</p>
+                    <p><a class="btn btn-secondary me-2" asp-area="" asp-controller="Store" asp-action="">Comprar ahora</a></p>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="hero-img-wrap">
+                    <img src="https://pngimg.com/d/book_PNG2109.png" class="img-fluid" alt="Imagen relacionada con libros">
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<div class="why-choose-section">
+	<div class="container">
+		<div class="row justify-content-between">
+			<div class="col-lg-6">
+				<h2 class="section-title">¿Por qué preferirnos?</h2>
+				<p>BookSwap fue pensada para los entusiastas del mundo de las letras que no pueden acceder a ejemplares 
+					nuevos de sus libros favoritos por los elevados y poco accesibles costos de venta 
+					exhibidos en librerías tradicionales y para aquellos antiguos dueños que quieran brindarle una segunda 
+					oportunidad a aquellos tomos que están condenados a empolvarse y que pueden terminar desechando 
+					por su falta de uso.
+				</p>
+
+				<div class="row my-5">
+					<div class="col-6 col-md-6">
+						<div class="feature">
+							<i class="fa-solid fa-seedling"></i>
+							<h3>Sostenibilidad ambiental</h3>
+							<p>Impulsamos la sostenibilidad y reutilización de libros en Ecuador para reducir del desperdicio y la prolongación en el uso de los libros usados</p>
+						</div>
+					</div>
+
+					<div class="col-6 col-md-6">
+						<div class="feature">
+							<i class="fa-solid fa-money-bill"></i>
+							<h3>Precios accesibles</h3>
+							<p>Puedes adquirir libros a precios extremadamente reducidos e incluso sin costo alguno si el propietario lo publica como donacion</p>
+						</div>
+					</div>
+
+					<div class="col-6 col-md-6">
+						<div class="feature">
+							<i class="fa-solid fa-universal-access"></i>
+							<h3>Acceso universal</h3>
+							<p> BookSwap busca que cualquier persona, independientemente de su situación económica, pueda disfrutar de la riqueza de la literatura y
+								contribuir al intercambio cultural y al fomento de la comunidad lectora en el país.</p>
+						</div>
+					</div>
+
+					<div class="col-6 col-md-6">
+						<div class="feature">
+							<i class="fa-solid fa-wallet"></i>
+							<h3>Economia local</h3>
+							<p>BookSwap promueve un modelo de economía circular, donde los libros se reutilizan en lugar de desecharse, 
+								lo que beneficia al medio ambiente y a la economía permitiendo a los anterior dueños recuperar parte de su inversión y aportar de forma significativa a la iniciativa</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+
+			<div class="col-lg-5">
+				<div class="img-wrap">
+					<img src="https://static4.depositphotos.com/1005951/385/i/950/depositphotos_3858931-stock-photo-books-vertical.jpg" alt="Image" class="img-fluid">
+				</div>
+			</div>
+
+			<!-- Start Testimonial Slider -->
+			<div class="testimonial-section">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-7 mx-auto text-center">
+							<h2 class="section-title">Testimonios</h2>
+						</div>
+					</div>
+
+					<div class="row justify-content-center">
+						<div class="col-lg-12">
+							<div class="testimonial-slider-wrap text-center">
+
+								<div id="testimonial-nav">
+									<span class="prev" data-controls="prev"><span class="fa fa-chevron-left"></span></span>
+									<span class="next" data-controls="next"><span class="fa fa-chevron-right"></span></span>
+								</div>
+
+								<div class="testimonial-slider">
+
+									<div class="item">
+										<div class="row justify-content-center">
+											<div class="col-lg-8 mx-auto">
+
+												<div class="testimonial-block text-center">
+													<blockquote class="mb-5">
+														<p>"BookSwap ha sido un salvavidas para mí. Como estudiante, no siempre tengo el presupuesto para comprar libros nuevos, y gracias a esta plataforma he podido 
+															conseguir los textos que necesito para mis clases a precios mucho más accesibles. ¡Además, he descubierto nuevos autores y géneros que no conocía!"</p>
+													</blockquote>
+
+													<div class="author-info">
+														<div class="author-pic">
+															<img src="https://pyxis.nymag.com/v1/imgs/b68/6eb/0de4c55113474a1c606211fc55e4669b48-21-johnny-knoxville-feature-1.2x.rvertical.w512.jpg" alt="Joaquin Chacon" class="img-fluid">
+														</div>
+														<h3 class="font-weight-bold">Joaquin Chacon</h3>
+														<span class="position d-block mb-3">Estudiante de Ingenieria</span>
+													</div>
+												</div>
+
+											</div>
+										</div>
+									</div>
+									<!-- END item -->
+
+									<div class="item">
+										<div class="row justify-content-center">
+											<div class="col-lg-8 mx-auto">
+
+												<div class="testimonial-block text-center">
+													<blockquote class="mb-5">
+														<p>
+															"Soy un apasionado de los libros y me encanta compartir mi pasión con mis alumnos. BookSwap me ha permitido encontrar ediciones antiguas y descatalogadas de obras clásicas que
+															utilizo para enriquecer mis clases. ¡Mis estudiantes están fascinados con la posibilidad de leer libros que no encontrarían en ninguna librería!"
+														</p>
+													</blockquote>
+
+													<div class="author-info">
+														<div class="author-pic">
+															<img src="https://www.lavanguardia.com/peliculas-series/images/profile/1974/6/w300/At4V4KPVOoBvWMtlZy6m4Wyvo3K.jpg" alt="Mateo Herrera" class="img-fluid">
+														</div>
+														<h3 class="font-weight-bold">Mateo Herrera</h3>
+														<span class="position d-block mb-3">Profesor</span>
+													</div>
+												</div>
+
+											</div>
+										</div>
+									</div>
+									<!-- END item -->
+
+									<div class="item">
+										<div class="row justify-content-center">
+											<div class="col-lg-8 mx-auto">
+
+												<div class="testimonial-block text-center">
+													<blockquote class="mb-5">
+														<p>"Mis hijos son ávidos lectores y siempre están buscando nuevos libros. BookSwap nos ha permitido intercambiar libros que ya han leído por otros que les interesan, lo que nos ha ahorrado mucho dinero y ha 
+															fomentado el hábito de la lectura en casa. ¡Además, es una forma divertida de conocer a otros amantes de los libros en nuestra comunidad!"</p>
+													</blockquote>
+
+													<div class="author-info">
+														<div class="author-pic">
+															<img src="https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/445369_v9_bc.jpg" alt="Diego Correa" class="img-fluid">
+														</div>
+														<h3 class="font-weight-bold">Diego Correa</h3>
+														<span class="position d-block mb-3">Padre de familia</span>
+													</div>
+												</div>
+
+											</div>
+										</div>
+									</div>
+									<!-- END item -->
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End Testimonial Slider -->
+			<!-- Start Footer Section -->
+			<footer class="footer-section">
+				<div class="container relative">
+
+					<div class="row">
+						<div class="col-lg-8">
+							<div class="subscription-form">
+								<h3 class="d-flex align-items-center"><span class="me-1"></span><span>Subscribete a nuestras noticias</span></h3>
+
+								<form action="#" class="row g-3">
+									<div class="col-auto">
+										<input type="text" class="form-control" placeholder="Nombre">
+									</div>
+									<div class="col-auto">
+										<input type="email" class="form-control" placeholder="Email">
+									</div>
+									<div class="col-auto">
+										<button class="btn btn-primary">
+											<span class="fa fa-paper-plane"></span>
+										</button>
+									</div>
+								</form>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="row g-5 mb-5">
+						<div class="col-lg-4">
+							<div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">BookSwap<span>.</span></a></div>
+							<p class="mb-4">BookSwap Ecuador: Tu puerta a un mundo de historias. ¡Descubre, intercambia y comparte la pasión por los libros!</p>
+
+							<ul class="list-unstyled custom-social">
+								<li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
+								<li><a href="#"><span class="fa fa-brands fa-twitter"></span></a></li>
+								<li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>
+								<li><a href="#"><span class="fa fa-brands fa-linkedin"></span></a></li>
+							</ul>
+						</div>
+
+						<div class="col-lg-8">
+							<div class="row links-wrap">
+								<div class="col-6 col-sm-6 col-md-3">
+									<ul class="list-unstyled">
+										<li><a href="#">Tienda</a></li>
+										<li><a href="#">Vender</a></li>
+										<li><a href="#">Mi perfil</a></li>
+								
+									</ul>
+								</div>
+
+						
+								
+							</div>
+						</div>
+
+					</div>
+
+					<div class="border-top copyright">
+						<div class="row pt-4">
+							<div class="col-lg-6">
+								<p class="mb-2 text-center text-lg-start">
+									Copyright &copy;<script>document.write(new Date().getFullYear());</script>. Todos los derechos reservados. &mdash; Diseñado por Joaquin, Mateo y Diego.
+								</p>
+							</div>
+
+							<div class="col-lg-6 text-center text-lg-end">
+								<ul class="list-unstyled d-inline-flex ms-auto">
+									<li class="me-4"><a href="#">Terms &amp; Conditions</a></li>
+									<li><a href="#">Privacy Policy</a></li>
+								</ul>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+			</footer>
+			<!-- End Footer Section -->
+		</div>
+	</div>
+</div>
+
+
+
+
