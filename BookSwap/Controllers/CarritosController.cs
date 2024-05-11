@@ -7,16 +7,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BookSwap.Data;
 using BookSwap.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace BookSwap.Controllers
 {
     public class CarritosController : Controller
     {
         private readonly BookSwapContext _context;
+    
 
         public CarritosController(BookSwapContext context)
         {
             _context = context;
+            
         }
 
         // GET: Carritos
@@ -154,5 +157,9 @@ namespace BookSwap.Controllers
         {
             return _context.Carrito.Any(e => e.Id == id);
         }
+
+
+       
+
     }
 }

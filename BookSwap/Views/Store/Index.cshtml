@@ -16,7 +16,7 @@
                     </div>
                     <div class="card-body">
                         <span class="card-text">@book.Precio.ToString("c")</span>
-                        <a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@book.Id" class="btn btn-primary float-right store-btn"><i class="fa-solid fa-cart-plus mr-2"></i>Agregar al carrito</a>
+                        <a asp-controller="Carritos" asp-action="AgregarAlCarrito" asp-route-id="@book.Id" class="btn btn-primary float-right store-btn"><i class="fa-solid fa-cart-plus mr-2"></i>Agregar al carrito</a>
                     </div>
                 </a>
             </div>
