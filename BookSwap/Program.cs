@@ -1,12 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using BookSwap.Data;
+using Microsoft.AspNetCore.Identity;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<BookSwapContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("BookSwapContext") ?? throw new InvalidOperationException("Connection string 'BookSwapContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<BookSwapContext>();
+builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
@@ -21,8 +24,9 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+app.MapRazorPages();
 app.UseRouting();
+app.UseAuthentication();
 
 app.UseAuthorization();
 
