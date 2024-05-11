@@ -47,8 +47,9 @@
                     @Html.DisplayNameFor(model => model.Genero)
                 </dt>
                 <dd class="col-sm-9">
-                    @Html.DisplayFor(model => model.Genero)
+                    @Html.DisplayFor(model => model.Genero.Name)
                 </dd>
+
                 <dt class="col-sm-3">
                     @Html.DisplayNameFor(model => model.Descripcion)
                 </dt>
@@ -70,8 +71,8 @@
             </dl>
         </div>
         <div>
-            <a asp-action="Index" class="btn btn-warning"><i class="fa-solid fa-arrow-left"></i> Back</a>
-            <a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@Model.Id" class="btn btn-primary store-btn float-right mr-5">Add to cart <i class="fa-solid fa-cart-plus"></i></a>
+            <a asp-action="Index" class="btn btn-warning"><i class="fa-solid fa-arrow-left"></i>Regresar</a>
+            <a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@Model.Id" class="btn btn-primary store-btn float-right mr-5">Agregar al carrito<i class="fa-solid fa-cart-plus"></i></a>
         </div>
     </div>
     <div class="col-4">

@@ -10,23 +10,23 @@ using BookSwap.Models;
 
 namespace BookSwap.Controllers
 {
-    public class LibrosController : Controller
+    public class CarritosController : Controller
     {
         private readonly BookSwapContext _context;
 
-        public LibrosController(BookSwapContext context)
+        public CarritosController(BookSwapContext context)
         {
             _context = context;
         }
 
-        // GET: Libros
+        // GET: Carritos
         public async Task<IActionResult> Index()
         {
-            var bookSwapContext = _context.Libro.Include(l => l.Genero);
-            return View(await bookSwapContext.ToListAsync());
+            var carrito = await _context.Carrito.Include(c => c.ItemsCarritos).FirstOrDefaultAsync();
+            return View(carrito);
         }
 
-        // GET: Libros/Details/5
+        // GET: Carritos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -34,42 +34,39 @@ namespace BookSwap.Controllers
                 return NotFound();
             }
 
-            var libro = await _context.Libro
-                .Include(l => l.Genero)
+            var carrito = await _context.Carrito
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (libro == null)
+            if (carrito == null)
             {
                 return NotFound();
             }
 
-            return View(libro);
+            return View(carrito);
         }
 
-        // GET: Libros/Create
+        // GET: Carritos/Create
         public IActionResult Create()
         {
-            ViewData["CategoryId"] = new SelectList(_context.Categorias, "Id", "Name");
             return View();
         }
 
-        // POST: Libros/Create
+        // POST: Carritos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Titulo,Descripcion,Estado,Idioma,ISBN,FechaPublicacion,CategoryId,Precio,Autor,ImageUrl")] Libro libro)
+        public async Task<IActionResult> Create([Bind("Id")] Carrito carrito)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(libro);
+                _context.Add(carrito);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categorias, "Id", "Name", libro.CategoryId);
-            return View(libro);
+            return View(carrito);
         }
 
-        // GET: Libros/Edit/5
+        // GET: Carritos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -77,23 +74,22 @@ namespace BookSwap.Controllers
                 return NotFound();
             }
 
-            var libro = await _context.Libro.FindAsync(id);
-            if (libro == null)
+            var carrito = await _context.Carrito.FindAsync(id);
+            if (carrito == null)
             {
                 return NotFound();
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categorias, "Id", "Name", libro.CategoryId);
-            return View(libro);
+            return View(carrito);
         }
 
-        // POST: Libros/Edit/5
+        // POST: Carritos/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,Descripcion,Estado,Idioma,ISBN,FechaPublicacion,CategoryId,Precio,Autor,ImageUrl")] Libro libro)
+        public async Task<IActionResult> Edit(int id, [Bind("Id")] Carrito carrito)
         {
-            if (id != libro.Id)
+            if (id != carrito.Id)
             {
                 return NotFound();
             }
@@ -102,12 +98,12 @@ namespace BookSwap.Controllers
             {
                 try
                 {
-                    _context.Update(libro);
+                    _context.Update(carrito);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!LibroExists(libro.Id))
+                    if (!CarritoExists(carrito.Id))
                     {
                         return NotFound();
                     }
@@ -118,11 +114,10 @@ namespace BookSwap.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categorias, "Id", "Name", libro.CategoryId);
-            return View(libro);
+            return View(carrito);
         }
 
-        // GET: Libros/Delete/5
+        // GET: Carritos/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -130,35 +125,34 @@ namespace BookSwap.Controllers
                 return NotFound();
             }
 
-            var libro = await _context.Libro
-                .Include(l => l.Genero)
+            var carrito = await _context.Carrito
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (libro == null)
+            if (carrito == null)
             {
                 return NotFound();
             }
 
-            return View(libro);
+            return View(carrito);
         }
 
-        // POST: Libros/Delete/5
+        // POST: Carritos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var libro = await _context.Libro.FindAsync(id);
-            if (libro != null)
+            var carrito = await _context.Carrito.FindAsync(id);
+            if (carrito != null)
             {
-                _context.Libro.Remove(libro);
+                _context.Carrito.Remove(carrito);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool LibroExists(int id)
+        private bool CarritoExists(int id)
         {
-            return _context.Libro.Any(e => e.Id == id);
+            return _context.Carrito.Any(e => e.Id == id);
         }
     }
 }

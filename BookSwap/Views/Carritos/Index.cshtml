@@ -1,0 +1,39 @@
+﻿@model Carrito
+
+<h1>Carrito de Compras</h1>
+
+@if (Model != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Libro</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ItemsCarritos)
+            {
+                var bookTotal = item.Libro.Precio * item.Cantidad;
+                <tr>
+                    <td>
+                        <img src="@item.Libro.ImageUrl" style="height: 4em">
+                    </td>
+                    <td>@item.Libro.Titulo</td>
+                    <td>
+                        @bookTotal.ToString("c")
+                    </td>
+                    <td>@item.Libro.Precio</td
+                   
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No hay productos en el carrito.</p>
+}
+

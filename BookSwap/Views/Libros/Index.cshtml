@@ -2,24 +2,12 @@
 
 @{
     ViewData["Title"] = "Index";
-
-    string HasImage(Libro libro)
-    {
-        if (libro.ImageUrl != "" && libro.ImageUrl != null)
-        {
-            return "fa-solid fa-check";
-        }
-        else
-        {
-            return "fa-solid fa-x";
-        }
-    }
 }
 
-<h1>Inventario</h1>
+<h1>Libros</h1>
 
 <p>
-    <a asp-action="Create">Crear Nuevo</a>
+    <a asp-action="Create"><button type="button" class="btn btn-primary">Agergar nuevo libro</button></a>
 </p>
 <table class="table">
     <thead>
@@ -51,9 +39,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Autor)
             </th>
-            <th>
-                Disponibilidad de imagen
-            </th>
+           
             <th></th>
         </tr>
     </thead>
@@ -79,7 +65,7 @@
                 @Html.DisplayFor(modelItem => item.FechaPublicacion)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Genero)
+                @Html.DisplayFor(modelItem => item.Genero.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Precio)
@@ -87,13 +73,11 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Autor)
             </td>
+            
             <td>
-                <i class="@HasImage(item)"></i>
-            </td>
-            <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id"><button type="button" class="btn btn-warning">Editar</button></a> |
-                    <a asp-action="Details" asp-route-id="@item.Id"><button type="button" class="btn btn-info">Info</button></a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id"><button type="button" class="btn btn-danger">Eliminar</button></a>
+                    <a asp-action="Edit" asp-route-id="@item.Id"><button type="button" class="btn btn-primary">Editar</button></a> |
+                    <a asp-action="Details" asp-route-id="@item.Id"><button type="button" class="btn btn-primary">Detalles</button></a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id"><button type="button" class="btn btn-primary">Eliminar</button></a>
             </td>
         </tr>
 }

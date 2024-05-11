@@ -1,5 +1,7 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookSwap.Models
 {
@@ -26,8 +28,12 @@ namespace BookSwap.Models
         [DisplayName("Fecha de publicacion"), DataType(DataType.Date)]
         public DateTime FechaPublicacion { get; set; }
 
-        [Required]
-        public string Genero { get; set; }
+
+        public int CategoryId { get; set; }
+        [ForeignKey("CategoryId")]
+        [ValidateNever]
+        public Categoria Genero { get; set; }
+
 
         [Required, DataType(DataType.Currency)]
         public double Precio { get; set; }
@@ -37,7 +43,9 @@ namespace BookSwap.Models
 
         [DisplayName("Imagen")]
         public string ImageUrl { get; set; }
-        
+       
+
+
 
     }
 }
