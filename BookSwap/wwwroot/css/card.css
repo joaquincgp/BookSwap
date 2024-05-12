@@ -2,10 +2,10 @@
     color: inherit;
 }
 
-    .a-cleanup:hover {
-        text-decoration: none;
-        color: inherit;
-    }
+.a-cleanup:hover {
+    text-decoration: none;
+    color: inherit;
+}
 
 .card-img-custom {
     width: 100%;
@@ -17,10 +17,10 @@
     transition: all 0.2s ease;
 }
 
-    .store-card:hover {
-        transform: scale(1.03);
-        box-shadow: lightgray 2px 5px 5px 2px;
-    }
+.store-card:hover {
+    transform: scale(1.03);
+    box-shadow: lightgray 2px 5px 5px 2px;
+}
 
 .store-btn {
     transition: all 0.2s ease;

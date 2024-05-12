@@ -4,7 +4,7 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Información del libro</h1>
+<h1>Información</h1>
 
 <div class="row">
     <div class="col-5">
@@ -68,8 +68,12 @@
                 <dd class="col-sm-9">
                     @Html.DisplayFor(model => model.FechaPublicacion)
                 </dd>
+               
             </dl>
         </div>
+
+        
+
         <div>
             <a asp-action="Index" class="btn btn-warning"><i class="fa-solid fa-arrow-left"></i>Regresar</a>
             <a asp-controller="Carritos" asp-action="AddToCart" asp-route-id="@Model.Id" class="btn btn-primary store-btn float-right mr-5">Agregar al carrito<i class="fa-solid fa-cart-plus"></i></a>

@@ -2,25 +2,56 @@
 @{
     ViewData["Title"] = "Tienda";
 }
-
+<head>
+    <meta charset="utf-8" />
+    <title>Tiendaa</title>
+    <link rel="stylesheet" href="~/css/tarjetas2.css" />
+</head>
 
 <div class="row">
     @foreach (var book in Model)
     {
-        <div class="col-3">
-            <div class="card my-2 store-card custom-bg-color">
-                <a class="a-cleanup" asp-controller="Store" asp-action="Details" asp-route-id="@book.Id">
-                    <img src="@book.ImageUrl" class="card-img-top card-img-custom">
-                    <div class="card-body" style="height: 6em;">
-                        <h5 class="mb-3">@book.Titulo</h5>
-                    </div>
-                    <div class="card-body">
-                        <span class="card-text">@book.Precio.ToString("c")</span>
-                        <a asp-controller="Carritos" asp-action="AgregarAlCarrito" asp-route-id="@book.Id" class="btn btn-primary float-right store-btn"><i class="fa-solid fa-cart-plus mr-2"></i>Agregar al carrito</a>
-                    </div>
-                </a>
-            </div>
-        </div>
+        <div class="col-lg-3 col-sm-6">
+            
+                <div class="col-12 p-1">
+                <div class="card my-2 store-card border-0 p-3 shadow  border-top border-5 rounded">
+                    <a class="a-cleanup" asp-controller="Store" asp-action="Details" asp-route-id="@book.Id">
+                        @if (book.ImageUrl != null && book.ImageUrl.Count() > 0)
+                        {
+                            <img src="@book.ImageUrl" class="card-img-top card-img-custom "  />
+                        }
+                        else
+                        {
+                            <img src="https://placehold.co/500x600/png" class="card-img-top card-img-custom" />
+                        }
 
+                        <div class="card-body pb-0">
+                            <div class="pl-1">
+                                <p class="card-title h5 opacity-75 text-uppercase text-center">@book.Titulo</p>
+                                <p class="card-title text-warning text-center">by <b>@book.Autor</b></p>
+                            </div>
+                            
+                            <div class="pl-1">
+                                <p class="text-opacity-75 text-center">
+                                    
+                                    <span>
+                                        @book.Precio.ToString("c")
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        <div>
+                            <a asp-action="AgregarAlCarrito"
+                               asp-route-productId="@book.Id"
+                               class="btn btn-primary bg-gradient border-0 form-control">
+                                <i class="fa-solid fa-cart-plus mr-2"></i>  Agregar al carrito
+                            </a>
+                        </div>
+                    </a>
+                    </div>
+                </div>
+           
+        </div>
+        
     }
 </div>

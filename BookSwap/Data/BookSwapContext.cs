@@ -20,6 +20,7 @@ namespace BookSwap.Data
         public DbSet<BookSwap.Models.Carrito> Carrito { get; set; } = default!;
         public DbSet<ItemCarrito> ItemCarritos { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
+        public DbSet<Cliente> Clientes { get; set;}
 
 
        
