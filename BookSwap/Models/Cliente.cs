@@ -17,7 +17,7 @@ namespace BookSwap.Models
         public string? Provincia { get; set; }
         [Required, MaxLength(10)]
         public string? Celular { get; set; }
-        [Required, MaxLength(9)]
+        [Required, MaxLength(10)]
         public string? Cedula { get; set; }
 
     }

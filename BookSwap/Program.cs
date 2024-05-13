@@ -2,14 +2,19 @@
 using Microsoft.Extensions.DependencyInjection;
 using BookSwap.Data;
 using Microsoft.AspNetCore.Identity;
+using BookSwap;
+using Microsoft.AspNetCore.Identity.UI.Services;
+
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<BookSwapContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("BookSwapContext") ?? throw new InvalidOperationException("Connection string 'BookSwapContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<BookSwapContext>();
+builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<BookSwapContext>().AddDefaultTokenProviders();
 builder.Services.AddRazorPages();
+builder.Services.AddScoped<IEmailSender, EmailSender>();
 
 var app = builder.Build();
 
